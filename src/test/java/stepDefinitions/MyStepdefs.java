@@ -1,4 +1,4 @@
-package stepDefinitons;
+package stepDefinitions;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -6,10 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.HomePage;
+import pages.JobPostingsPage;
 import pages.LoginPage;
+import pages.SearchPage;
 import utilities.Driver;
 
 import java.net.MalformedURLException;
@@ -19,7 +20,9 @@ public class MyStepdefs {
 
     private AppiumDriver driver;
     LoginPage loginPage;
-
+    HomePage homePage;
+    SearchPage searchPage;
+    JobPostingsPage jobPostingsPage;
 
     @Given("the user open the application with android")
     public void theUserOpenTheApplicationWithAndroid() throws MalformedURLException {
@@ -38,7 +41,7 @@ public class MyStepdefs {
         androidCaps.setCapability("autoGrantPermissions", true);
         driver = Driver.getDriver();
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), androidCaps);
-        loginPage = new LoginPage(driver);
+
     }
 
     @When("the user clicks the is ariyorum button")
@@ -49,26 +52,26 @@ public class MyStepdefs {
 
     @And("the user clicks the search button")
     public void theUserClicksTheSearchButton() {
-        loginPage.clickSearchButton();
+        homePage.clickSearchButton();
 
     }
 
     @And("the user search for job name as {string} jobs")
     public void theUserSearchForJobs(String string) {
         loginPage = new LoginPage(driver);
-        loginPage.setJobNameInput("jobname");
+        searchPage.setJobNameInput("jobname");
 
     }
 
     @Then("the user clicks the second search button")
     public void theUserClicksTheSecondSearchButton() {
-        loginPage.clickSearchButton2();
+        searchPage.clickSearchButton2();
 
     }
 
     @And("the user can see the postings for job name as {string} jobs")
     public void theUserCanSeeThePostingsForJobs(String string) {
-        loginPage.assertToSuccessfulMessage();
+        jobPostingsPage.assertToSuccessfulMessage();
 
 
     }

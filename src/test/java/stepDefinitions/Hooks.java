@@ -1,4 +1,4 @@
-package stepDefinitons;
+package stepDefinitions;
 
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.After;
