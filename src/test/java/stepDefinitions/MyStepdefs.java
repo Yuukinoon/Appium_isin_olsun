@@ -46,31 +46,37 @@ public class MyStepdefs {
 
     @When("the user clicks the is ariyorum button")
     public void theUserClicksTheisAriyorumButton() {
+        loginPage = new LoginPage(driver);
         loginPage.clickIsAriyorumButton();
+
 
     }
 
     @And("the user clicks the search button")
     public void theUserClicksTheSearchButton() {
+
+        homePage = new HomePage(driver);
         homePage.clickSearchButton();
 
     }
 
-    @And("the user search for job name as {string} jobs")
-    public void theUserSearchForJobs(String string) {
-        loginPage = new LoginPage(driver);
-        searchPage.setJobNameInput("jobname");
+    @And("the user search for jobname as {string} jobs")
+    public void theUserSearchForJobs(String jobname) {
+        searchPage = new SearchPage(driver);
+        searchPage.setJobNameInput(jobname);
 
     }
 
     @Then("the user clicks the second search button")
     public void theUserClicksTheSecondSearchButton() {
+        searchPage = new SearchPage(driver);
         searchPage.clickSearchButton2();
 
     }
 
-    @And("the user can see the postings for job name as {string} jobs")
-    public void theUserCanSeeThePostingsForJobs(String string) {
+    @And("the user can see the postings for jobs")
+    public void theUserCanSeeThePostingsForJobs() {
+        jobPostingsPage = new JobPostingsPage(driver);
         jobPostingsPage.assertToSuccessfulMessage();
 
 

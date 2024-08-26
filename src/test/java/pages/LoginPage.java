@@ -5,9 +5,11 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import stepDefinitions.Hooks;
 
 public class LoginPage {
     public AppiumDriver driver;
+    Hooks hooks = new Hooks();
 
     @FindBy(id="com.isinolsun.app:id/bluecollar_type_button")
     private WebElement isAriyorumButton;
@@ -19,8 +21,10 @@ public class LoginPage {
     }
 
     public void clickIsAriyorumButton(){
+        hooks.waitForElement(driver,isAriyorumButton,10 );
         isAriyorumButton.click();
     }
+
 
 
 
