@@ -5,9 +5,11 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import stepDefinitions.Hooks;
 
 public class JobPostingsPage {
     public AppiumDriver driver;
+    Hooks hooks = new Hooks();
 
     @FindBy(id ="com.isinolsun.app:id/toolbar_title")
     private WebElement aramaSonuclari;
@@ -18,6 +20,7 @@ public class JobPostingsPage {
     }
 
     public void assertToSuccessfulMessage(){
+        hooks.waitForElement(driver,aramaSonuclari,10 );
         Assert.assertTrue(aramaSonuclari.isDisplayed());
     }
 }

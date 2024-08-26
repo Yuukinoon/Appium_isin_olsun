@@ -10,10 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.HomePage;
-import pages.JobPostingsPage;
-import pages.LoginPage;
-import pages.SearchPage;
 import utilities.Driver;
 
 import java.net.MalformedURLException;
@@ -32,11 +28,11 @@ public class Hooks {
 
     }
 
-    @BeforeStep
-        public WebElement waitForElement(WebDriver driver, By locator, int seconds) {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
+    @BeforeStep
+    public  WebElement waitForElement(WebDriver driver, WebElement element, int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     @After

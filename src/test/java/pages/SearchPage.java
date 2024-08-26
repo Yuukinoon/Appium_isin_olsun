@@ -6,13 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import stepDefinitions.Hooks;
 
 import java.time.Duration;
 
 public class SearchPage {
     public AppiumDriver driver;
     public WebDriverWait wait;
-
+    Hooks hooks = new Hooks();
 
     @FindBy(id="com.isinolsun.app:id/search_edit_text_input")
     private WebElement jobNameInput;
@@ -21,18 +22,20 @@ public class SearchPage {
     @FindBy(id="com.isinolsun.app:id/toolbarSearch")
     private WebElement searchButton2;
 
+
     public SearchPage(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void setJobNameInput(String jobname){
+        hooks.waitForElement(driver,jobNameInput,10 );
         jobNameInput.sendKeys(jobname);
     }
 
 
     public void clickSearchButton2(){
-
+        hooks.waitForElement(driver,searchButton2,10 );
         searchButton2.click();
     }
 
