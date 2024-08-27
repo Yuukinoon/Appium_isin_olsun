@@ -35,6 +35,7 @@ public class Hooks {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+
     @After
     public void afterScenario(){
         Driver.closeDriver();
