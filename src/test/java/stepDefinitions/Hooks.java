@@ -29,12 +29,6 @@ public class Hooks {
     }
 
 
-    @BeforeStep
-    public  WebElement waitForElement(WebDriver driver, WebElement element, int seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        return wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
 
     @After
     public void afterScenario(){

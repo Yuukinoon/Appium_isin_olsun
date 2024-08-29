@@ -6,8 +6,8 @@ Feature:Search functionality
     When the user clicks the is ariyorum button
     And the user clicks the search button
     And the user search for jobname as "<jobname>" jobs
-    Then the user clicks the search button
-    And the user can see the postings for jobs
+    And the user clicks the search button
+    Then the user can see the postings for jobs
 
     Examples:
       |jobname|

@@ -5,22 +5,33 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import stepDefinitions.Hooks;
+import utilities.WaitElements;
 
 public class JobPostingsPage {
     public AppiumDriver driver;
-    Hooks hooks = new Hooks();
+    WaitElements waitElements = new WaitElements();
 
-    @FindBy(id ="com.isinolsun.app:id/toolbar_title")
+    @FindBy(xpath ="//android.widget.TextView[contains(@text,\"bulundu \")]")
     private WebElement aramaSonuclari;
+
+    @FindBy(id="com.isinolsun.app:id/main_filter_cv")
+    private WebElement filterButton;
+
+
 
     public JobPostingsPage(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    public void clickApplyFilterButton(){
+        waitElements.waitForElement(driver,filterButton,10 );
+        filterButton.click();
+    }
+
     public void assertToSuccessfulMessage(){
-        hooks.waitForElement(driver,aramaSonuclari,10 );
+        waitElements.waitForElement(driver,aramaSonuclari,10 );
         Assert.assertTrue(aramaSonuclari.isDisplayed());
     }
+
 }

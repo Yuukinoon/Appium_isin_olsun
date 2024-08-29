@@ -7,10 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.HomePage;
-import pages.JobPostingsPage;
-import pages.LoginPage;
-import pages.SearchPage;
+import pages.*;
 import utilities.Driver;
 
 import java.net.MalformedURLException;
@@ -23,6 +20,8 @@ public class MyStepdefs {
     HomePage homePage;
     SearchPage searchPage;
     JobPostingsPage jobPostingsPage;
+    FilterPage filterPage;
+
 
     @Given("the user open the application with android")
     public void theUserOpenTheApplicationWithAndroid() throws MalformedURLException {
@@ -67,19 +66,49 @@ public class MyStepdefs {
 
     }
 
-    @Then("the user clicks the second search button")
+    @And("the user clicks the second search button")
     public void theUserClicksTheSecondSearchButton() {
         searchPage = new SearchPage(driver);
         searchPage.clickSearchButton2();
 
     }
 
-    @And("the user can see the postings for jobs")
+
+
+    @And("the user clicks the filter button")
+    public void theUserClicksTheFilterButton() {
+        jobPostingsPage.clickApplyFilterButton();
+        
+    }
+
+    @And("the user clicks the this week button")
+    public void theUserClicksTheThisWeekButton() {
+        filterPage.clickThisWeekButton();
+    }
+
+    @And("the user clicks the apply the app button")
+    public void theUserClicksTheApplyTheAppButton() {
+        filterPage.clickApplyTheAppButton();
+        
+    }
+
+    @And("the user clicks the full time button")
+    public void theUserClicksTheFullTimeButton() {
+        filterPage.clickFullTimeButton();
+        
+    }
+
+    @And("the user clicks the apply filter button")
+    public void theUserClicksTheApplyFilterButton() {
+        filterPage.clickApplyFilterButton();
+    }
+
+
+    @Then("the user can see the postings for jobs")
     public void theUserCanSeeThePostingsForJobs() {
         jobPostingsPage = new JobPostingsPage(driver);
         jobPostingsPage.assertToSuccessfulMessage();
 
 
     }
-
 }
