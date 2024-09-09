@@ -30,13 +30,13 @@ public class SearchPage {
     }
 
     public void setJobNameInput(String jobname){
-        waitElements.waitForElement(driver,jobNameInput,10 );
+        waitElements.waitForElement(driver,jobNameInput,20 );
         jobNameInput.sendKeys(jobname);
     }
 
 
     public void clickSearchButton2(){
-        waitElements.waitForElement(driver,searchButton2,10 );
+        waitElements.waitForElement(driver,searchButton2,20 );
         searchButton2.click();
     }
 

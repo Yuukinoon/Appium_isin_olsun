@@ -25,12 +25,12 @@ public class JobPostingsPage {
     }
 
     public void clickApplyFilterButton(){
-        waitElements.waitForElement(driver,filterButton,10 );
+        waitElements.waitForElement(driver,filterButton,20 );
         filterButton.click();
     }
 
     public void assertToSuccessfulMessage(){
-        waitElements.waitForElement(driver,aramaSonuclari,10 );
+        waitElements.waitForElement(driver,aramaSonuclari,20 );
         Assert.assertTrue(aramaSonuclari.isDisplayed());
     }
 

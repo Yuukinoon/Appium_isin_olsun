@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/features",
         glue = "stepDefinitions",
         plugin = {"pretty","html:target/cucumber-html-report.html", "json:target/cucumber-json-report.json"},
-        tags = "@regression or @smoke"
+        tags = "@smoke or @regression"
 
 
 )

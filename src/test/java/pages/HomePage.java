@@ -12,6 +12,9 @@ public class HomePage {
     @FindBy(id="com.isinolsun.app:id/search_edit_text_input")
     private WebElement searchButton;
 
+    @FindBy(id="com.isinolsun.app:id/sort_order_cv")
+    private WebElement sortOrderButton;
+
     public HomePage(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -19,6 +22,11 @@ public class HomePage {
     public void clickSearchButton(){
         waitElements.waitForElement(driver,searchButton,10 );
         searchButton.click();
+    }
+
+    public void clickSortOrderButton(){
+        waitElements.waitForElement(driver,sortOrderButton,10 );
+        sortOrderButton.click();
     }
 
 }

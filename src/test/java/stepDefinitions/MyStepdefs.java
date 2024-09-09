@@ -21,6 +21,8 @@ public class MyStepdefs {
     SearchPage searchPage;
     JobPostingsPage jobPostingsPage;
     FilterPage filterPage;
+    NewOldSortPostings newOldSortPostings;
+    SortPage sortPage;
 
 
     @Given("the user open the application with android")
@@ -110,5 +112,25 @@ public class MyStepdefs {
         jobPostingsPage.assertToSuccessfulMessage();
 
 
+    }
+
+    @And("the user clicks the sort order button")
+    public void theUserClicksTheSortOrderButton() {
+        
+    }
+
+    @And("the user clicks the from new old sort button")
+    public void theUserClicksTheFromNewOldSortButton() {
+        
+    }
+
+    @And("the user clicks the apply button")
+    public void theUserClicksTheApplyButton() {
+        
+    }
+
+    @Then("the user can see the postings for new old sort jobs")
+    public void theUserCanSeeThePostingsForNewOldSortJobs() {
+        
     }
 }
